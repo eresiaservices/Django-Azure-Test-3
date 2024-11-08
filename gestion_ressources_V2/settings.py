@@ -29,21 +29,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 
-# Configuration des fichiers médias
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-6@q4nqz@_e(nsh!v#$9q^nrc3gn#3wi*3%xe*tpk=s-iu3x9_b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-ALLOWED_HOSTS = []
+DEBUG = os.getenv("DJANGO_ENV") != "production"
 
 
 
