@@ -12,12 +12,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from .deployment import *
 
-
-if os.getenv("DJANGO_ENV") == "production":
-    from .deployment import *
-else:
-    from .development import *
 
 
 # settings.py
