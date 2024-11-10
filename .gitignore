@@ -1,9 +1,7 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-*$py.class*
-*.pyc
-*.pyo
+*$py.class
 
 
 # Distribution / packaging
@@ -68,7 +66,3 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-static/
-node_modules/
-tests/
-docs/
