@@ -76,4 +76,3 @@ jobs:
         id: deploy-to-webapp
         with:
           app-name: 'TestDjangoAzure'
-          slot-name: 'production'
