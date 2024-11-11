@@ -1,6 +1,3 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
 name: Build and deploy Python app to Azure Web App - TestDjangoAzure
 
 on:
@@ -29,7 +26,10 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      # Ajoutez la variable d'environnement ici pour les étapes qui l'utilisent
       - name: Run migrations
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: python manage.py migrate
 
       - name: Run collectstatic (no input)
@@ -53,7 +53,7 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: write #This is required for requesting the JWT
+      id-token: write
 
     steps:
       - name: Download artifact from build job
@@ -76,4 +76,4 @@ jobs:
         id: deploy-to-webapp
         with:
           app-name: 'TestDjangoAzure'
-          slot-name: 'production'  # Cible le slot de production par défaut
+          slot-name: 'production'
